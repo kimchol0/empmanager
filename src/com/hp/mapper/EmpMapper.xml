@@ -1,0 +1,12 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.mapper.EmpMapper">
+    <select id="selectEmps" resultType="com.hp.entity.Emp">
+        select e.empno,e.ename,e.job,e.sal,
+        d.deptno as "dept.deptno",
+        d.dname as "dept.dname",
+        d.loc as "dept.loc"
+        from emp e inner join dept d on e.deptno=d.deptno
+    </select>
+</mapper>
