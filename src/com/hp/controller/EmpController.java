@@ -22,7 +22,7 @@ public class EmpController {
         try {
             List<Emp> employeelistQueryResults = empService.selectEmps();
             ModelAndView employeeListModelAndView = new ModelAndView();
-            /*  添加对象，否则ModelAndView获取不到emps的集合  */
+            /*  添加对象，否则employeeListModelAndView获取不到employeelistQueryResults的集合  */
             employeeListModelAndView.addObject("employeelistQueryResultsTable",employeelistQueryResults);
             /*  返回/page/empManager/list.jsp  */
             employeeListModelAndView.setViewName("empManager/list");
