@@ -46,7 +46,7 @@ public class EmpController {
         try{
             empService.insertEmployeeInformation(deptno,emp);
             ModelAndView insertEmployeeModelAndView = new ModelAndView();
-            /*  执行插入员工操作后，重定向到EmpController控制器的EmployeeInformationTable方法中去执行EmployeeInformationTable方法  */
+            /*  执行插入员工信息操作后，重定向到EmpController控制器的EmployeeInformationTable路径下去执行displayEmployeeTable方法  */
             return "redirect:/EmpController/EmployeeInformationTable";
         }
         catch (Exception ex){
@@ -59,6 +59,7 @@ public class EmpController {
     public String deleteEmployeeInformationAndJumpingEmpControllerToEmployeeInformationTable(int empno){
         try{
             empService.deleteEmployeeInformation(empno);
+            /*  执行删除员工信息操作后，重定向到EmpController控制器的EmployeeInformationTable路径下去执行displayEmployeeTable方法  */
             return "redirect:/EmpController/EmployeeInformationTable";
         }
         catch (Exception ex){
@@ -72,7 +73,9 @@ public class EmpController {
         try {
             Emp queryEmployeeInformationByEmpnoResult = empService.queryEmployeeInformationByEmpno(empno);
             ModelAndView displayEmployeeInformationByEmpnoModelAndView = new ModelAndView();
+            /*  返回/page/empManager/editEmployeeInformation.jsp  */
             displayEmployeeInformationByEmpnoModelAndView.setViewName("empManager/editEmployeeInformation");
+            /*  添加对象，否则displayEmployeeInformationByEmpnoModelAndView获取不到queryEmployeeInformationByEmpnoResult的集合  */
             displayEmployeeInformationByEmpnoModelAndView.addObject("queryEmployeeInformationByEmpnoResult",queryEmployeeInformationByEmpnoResult);
             return displayEmployeeInformationByEmpnoModelAndView;
         }
@@ -86,6 +89,7 @@ public class EmpController {
     public String updateEmployeeInformation(Emp emp){
         try{
             empService.updateEmployeeInformation(emp);
+            /*  执行更新员工信息操作后，重定向到EmpController控制器的EmployeeInformationTable路径下去执行displayEmployeeTable方法  */
             return "redirect:/EmpController/EmployeeInformationTable";
         }
         catch (Exception ex){
