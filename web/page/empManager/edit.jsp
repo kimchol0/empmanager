@@ -9,13 +9,6 @@
         <table align="center" width="400px" cellpadding="10px" cellspacing="0px" border="1px">
 
             <tr>
-                <td align="right" width="30%">员工编号</td>
-                <td align="left" width="70%">
-                    <input type="text" name="empno" size="20" value="${selectEmpbyEmpnoEmpResult.empno}" readonly="readonly" />
-                </td>
-            </tr>
-
-            <tr>
                 <td align="right" width="30%">员工姓名</td>
                 <td align="left" width="70%">
                     <input type="text" name="ename" size="20" value="${selectEmpbyEmpnoEmpResult.ename}"/>
@@ -66,6 +59,8 @@
 
             <tr>
                 <td colspan="2" align="center">
+                    <!--通过隐藏域将主键提交上去-->
+                    <input type="hidden" name="empno" value="${selectEmpbyEmpnoEmpResult.empno}" />
                     <input type="submit" value="提交" />
                 </td>
             </tr>
