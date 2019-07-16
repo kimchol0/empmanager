@@ -19,5 +19,7 @@ public class EmpServiceImpl implements EmpService {
         return empMapper.selectEmps();
     }
 
-
+    public boolean insertEmp(int deptno,Emp emp) throws Exception{
+        return empMapper.insertEmp(deptno,emp);
+    }
 }

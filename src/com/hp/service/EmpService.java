@@ -7,4 +7,6 @@ public interface EmpService {
 
     public List<Emp> selectEmps()throws Exception;
 
+    public boolean insertEmp(int deptno,Emp emp) throws Exception;
+
 }

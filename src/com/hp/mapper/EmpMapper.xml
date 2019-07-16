@@ -9,4 +9,9 @@
         d.loc as "dept.loc"
         from emp e inner join dept d on e.deptno=d.deptno
     </select>
+    <insert id="insertEmp">
+        insert into emp(empno,ename,job,mgr,hiredate,sal,comm,deptno)
+        values
+        (#{emp.empno},#{emp.ename},#{emp.job},#{emp.mgr},#{emp.hiredate},#{emp.sal},#{emp.comm},#{deptno})
+    </insert>
 </mapper>

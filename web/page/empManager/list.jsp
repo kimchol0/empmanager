@@ -10,7 +10,7 @@
 
             <tr>
                 <td colspan="10" align="right">
-                    <a href="#">添加</a>
+                    <a href="${pageContext.request.contextPath}/empController/addEmployee">添加</a>
                 </td>
             </tr>
 
