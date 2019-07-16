@@ -4,7 +4,7 @@
     <title>首页</title>
   </head>
   <body>
-  <form action="${pageContext.request.contextPath}/empController/employeelist" method="post">
+  <form action="${pageContext.request.contextPath}/EmpController/EmployeeInformationTable" method="post">
     <table align="center" width="400px" cellpadding="10px" cellspacing="0px" border="1px">
       <tr>
         <td align="right" width="30%" >用户名</td>

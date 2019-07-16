@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <form action="${pageContext.request.contextPath}/empController/insertEmployee" method="post">
+    <form action="${pageContext.request.contextPath}/EmpController/insertEmployeeInformation" method="post">
 
         <table align="center" width="400px" cellpadding="10px" cellspacing="0px" border="1px">
 

@@ -25,7 +25,7 @@
     </delete>
 
     <select id="queryEmployeeInformationByEmpno" parameterType="int" resultType="com.hp.entity.Emp">
-                select e.empno,e.ename,e.job,e.mgr,e.sal,e.comm,e.hiredate,
+        select e.empno,e.ename,e.job,e.mgr,e.sal,e.comm,e.hiredate,
         d.deptno as "dept.deptno",
         d.dname as "dept.dname",
         d.loc as "dept.loc"
@@ -39,7 +39,7 @@
     <update id="updateEmployeeInformation" parameterType="com.hp.entity.Emp">
         update emp
         <set>
-            ename=#{ename},job=#{job},sal=#{sal},comm=#{comm},hiredate=#{hiredate},deptno=#{deptno}
+            ename=#{ename},job=#{job},sal=#{sal},mgr=#{mgr},comm=#{comm},hiredate=#{hiredate},deptno=#{deptno}
         </set>
         <where>
             empno=#{empno}

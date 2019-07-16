@@ -2,32 +2,30 @@ package com.hp.controller;
 
 import com.hp.entity.Emp;
 import com.hp.service.EmpService;
-import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.management.MalformedObjectNameException;
 import java.util.List;
 
 @Controller
-@RequestMapping("/empController")
+@RequestMapping("/EmpController")
 public class EmpController {
 
     @Autowired
     private EmpService empService;
 
-    @RequestMapping(value = {"/employeelist"}, method = {RequestMethod.POST,RequestMethod.GET})
+    @RequestMapping(value = {"/EmployeeInformationTable"}, method = {RequestMethod.POST,RequestMethod.GET})
     public ModelAndView displayEmployeeTable() {
         try {
-            List<Emp> employeelistQueryResults = empService.queryAllEmployeeInformation();
+            List<Emp> employeeInformationQueryResultTable = empService.queryAllEmployeeInformation();
             ModelAndView employeeListModelAndView = new ModelAndView();
             /*  添加对象，否则employeeListModelAndView获取不到employeelistQueryResults的集合  */
-            employeeListModelAndView.addObject("employeelistQueryResultsTable",employeelistQueryResults);
-            /*  返回/page/empManager/list.jsp  */
-            employeeListModelAndView.setViewName("empManager/list");
+            employeeListModelAndView.addObject("employeeInformationQueryResultTable",employeeInformationQueryResultTable);
+            /*  返回/page/empManager/EmployeeInformationTable.jsp  */
+            employeeListModelAndView.setViewName("empManager/EmployeeInformationTable");
             return employeeListModelAndView;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -35,21 +33,21 @@ public class EmpController {
         }
     }
 
-    @RequestMapping(value = {"/addEmployee"},method = {RequestMethod.GET})
+    @RequestMapping(value = {"/addEmployeeInformation"},method = {RequestMethod.GET})
     public ModelAndView jumpToInsertJsp(){
         ModelAndView addEmployeeJumpModelAndView = new ModelAndView();
-        /*  返回/page/empManager/insert.jsp  */
-        addEmployeeJumpModelAndView.setViewName("empManager/insert");
+        /*  返回/page/empManager/insertEmployeeInformation.jsp  */
+        addEmployeeJumpModelAndView.setViewName("empManager/insertEmployeeInformation");
         return addEmployeeJumpModelAndView;
     }
 
-    @RequestMapping(value = {"/insertEmployee"},method = RequestMethod.POST)
-    public String insertEmployeeInformationAndJumpingEmpControllerToEmployeeList(int deptno,Emp emp){
+    @RequestMapping(value = {"/insertEmployeeInformation"},method = RequestMethod.POST)
+    public String insertEmployeeInformationAndJumpingEmpControllerToEmployeeInformationTable(int deptno,Emp emp){
         try{
             empService.insertEmployeeInformation(deptno,emp);
             ModelAndView insertEmployeeModelAndView = new ModelAndView();
-            /*  执行插入员工操作后，重定向到EmpController控制器的employeelist方法中去执行employeelist方法  */
-            return "redirect:/empController/employeelist";
+            /*  执行插入员工操作后，重定向到EmpController控制器的EmployeeInformationTable方法中去执行EmployeeInformationTable方法  */
+            return "redirect:/EmpController/EmployeeInformationTable";
         }
         catch (Exception ex){
             ex.printStackTrace();
@@ -57,11 +55,11 @@ public class EmpController {
         }
     }
 
-    @RequestMapping(value = {"/deleteEmployee"},method = RequestMethod.GET)
-    public String deleteEmployeeInformationAndJumpingEmpControllerToEmployeeList(int empno){
+    @RequestMapping(value = {"/deleteEmployeeInformation"},method = RequestMethod.GET)
+    public String deleteEmployeeInformationAndJumpingEmpControllerToEmployeeInformationTable(int empno){
         try{
             empService.deleteEmployeeInformation(empno);
-            return "redirect:/empController/employeelist";
+            return "redirect:/EmpController/EmployeeInformationTable";
         }
         catch (Exception ex){
             ex.printStackTrace();
@@ -69,14 +67,14 @@ public class EmpController {
         }
     }
 
-    @RequestMapping(value = {"/editEmployee"},method = RequestMethod.GET)
+    @RequestMapping(value = {"/editEmployeeInformation"},method = RequestMethod.GET)
     public ModelAndView displayEmployeeInformationByEmpno(int empno){
         try {
-            Emp selectEmpbyEmpnoEmpResult = empService.queryEmployeeInformationByEmpno(empno);
-            ModelAndView mv = new ModelAndView();
-            mv.setViewName("empManager/edit");
-            mv.addObject("selectEmpbyEmpnoEmpResult",selectEmpbyEmpnoEmpResult);
-            return mv;
+            Emp queryEmployeeInformationByEmpnoResult = empService.queryEmployeeInformationByEmpno(empno);
+            ModelAndView displayEmployeeInformationByEmpnoModelAndView = new ModelAndView();
+            displayEmployeeInformationByEmpnoModelAndView.setViewName("empManager/editEmployeeInformation");
+            displayEmployeeInformationByEmpnoModelAndView.addObject("queryEmployeeInformationByEmpnoResult",queryEmployeeInformationByEmpnoResult);
+            return displayEmployeeInformationByEmpnoModelAndView;
         }
         catch (Exception ex){
             ex.printStackTrace();
@@ -84,11 +82,11 @@ public class EmpController {
         }
     }
 
-    @RequestMapping(value = {"/updateEmployee"},method = RequestMethod.POST)
+    @RequestMapping(value = {"/updateEmployeeInformation"},method = RequestMethod.POST)
     public String updateEmployeeInformation(Emp emp){
         try{
             empService.updateEmployeeInformation(emp);
-            return "redirect:/empController/employeelist";
+            return "redirect:/EmpController/EmployeeInformationTable";
         }
         catch (Exception ex){
             ex.printStackTrace();
