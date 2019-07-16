@@ -20,9 +20,9 @@ public class EmpController {
     private EmpService empService;
 
     @RequestMapping(value = {"/employeelist"}, method = {RequestMethod.POST,RequestMethod.GET})
-    public ModelAndView employeelistDisplayAndJump() {
+    public ModelAndView displayEmployeeTable() {
         try {
-            List<Emp> employeelistQueryResults = empService.selectEmps();
+            List<Emp> employeelistQueryResults = empService.queryAllEmployeeInformation();
             ModelAndView employeeListModelAndView = new ModelAndView();
             /*  添加对象，否则employeeListModelAndView获取不到employeelistQueryResults的集合  */
             employeeListModelAndView.addObject("employeelistQueryResultsTable",employeelistQueryResults);
@@ -36,7 +36,7 @@ public class EmpController {
     }
 
     @RequestMapping(value = {"/addEmployee"},method = {RequestMethod.GET})
-    public ModelAndView addEmployeeJump(){
+    public ModelAndView jumpToInsertJsp(){
         ModelAndView addEmployeeJumpModelAndView = new ModelAndView();
         /*  返回/page/empManager/insert.jsp  */
         addEmployeeJumpModelAndView.setViewName("empManager/insert");
@@ -44,9 +44,9 @@ public class EmpController {
     }
 
     @RequestMapping(value = {"/insertEmployee"},method = RequestMethod.POST)
-    public String insertEmployeeAndJumpEmpControllerEmployeeList(int deptno,Emp emp){
+    public String insertEmployeeInformationAndJumpingEmpControllerToEmployeeList(int deptno,Emp emp){
         try{
-            empService.insertEmp(deptno,emp);
+            empService.insertEmployeeInformation(deptno,emp);
             ModelAndView insertEmployeeModelAndView = new ModelAndView();
             /*  执行插入员工操作后，重定向到EmpController控制器的employeelist方法中去执行employeelist方法  */
             return "redirect:/empController/employeelist";
@@ -58,9 +58,9 @@ public class EmpController {
     }
 
     @RequestMapping(value = {"/deleteEmployee"},method = RequestMethod.GET)
-    public String deleteEmployeeAndJumpEmpControllerEmployeeList(int empno){
+    public String deleteEmployeeInformationAndJumpingEmpControllerToEmployeeList(int empno){
         try{
-            empService.deleteEmp(empno);
+            empService.deleteEmployeeInformation(empno);
             return "redirect:/empController/employeelist";
         }
         catch (Exception ex){
@@ -70,9 +70,9 @@ public class EmpController {
     }
 
     @RequestMapping(value = {"/editEmployee"},method = RequestMethod.GET)
-    public ModelAndView DisplayEmployeeByEmpno(int empno){
+    public ModelAndView displayEmployeeInformationByEmpno(int empno){
         try {
-            Emp selectEmpbyEmpnoEmpResult = empService.selectEmpbyEmpno(empno);
+            Emp selectEmpbyEmpnoEmpResult = empService.queryEmployeeInformationByEmpno(empno);
             ModelAndView mv = new ModelAndView();
             mv.setViewName("empManager/edit");
             mv.addObject("selectEmpbyEmpnoEmpResult",selectEmpbyEmpnoEmpResult);
@@ -85,9 +85,9 @@ public class EmpController {
     }
 
     @RequestMapping(value = {"/updateEmployee"},method = RequestMethod.POST)
-    public String updateEmployee(Emp emp){
+    public String updateEmployeeInformation(Emp emp){
         try{
-            empService.updateEmp(emp);
+            empService.updateEmployeeInformation(emp);
             return "redirect:/empController/employeelist";
         }
         catch (Exception ex){

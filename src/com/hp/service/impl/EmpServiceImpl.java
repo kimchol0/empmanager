@@ -15,23 +15,23 @@ public class EmpServiceImpl implements EmpService {
     private EmpMapper empMapper;
 
     @Override
-    public List<Emp> selectEmps() throws Exception{
-        return empMapper.selectEmps();
+    public List<Emp> queryAllEmployeeInformation() throws Exception{
+        return empMapper.queryAllEmployeeInformation();
     }
 
-    public boolean insertEmp(int deptno,Emp emp) throws Exception{
-        return empMapper.insertEmp(deptno,emp);
+    public boolean insertEmployeeInformation(int deptno,Emp emp) throws Exception{
+        return empMapper.insertEmployeeInformation(deptno,emp);
     }
-    public boolean deleteEmp(int empno) throws Exception{
-        return empMapper.deleteEmp(empno);
-    }
-
-    public Emp selectEmpbyEmpno(int empno) throws Exception{
-        return empMapper.selectEmpbyEmpno(empno);
+    public boolean deleteEmployeeInformation(int empno) throws Exception{
+        return empMapper.deleteEmployeeInformation(empno);
     }
 
-    public boolean updateEmp (Emp emp) throws Exception{
-        return empMapper.updateEmp(emp);
+    public Emp queryEmployeeInformationByEmpno(int empno) throws Exception{
+        return empMapper.queryEmployeeInformationByEmpno(empno);
+    }
+
+    public boolean updateEmployeeInformation (Emp emp) throws Exception{
+        return empMapper.updateEmployeeInformation(emp);
     }
 
 }

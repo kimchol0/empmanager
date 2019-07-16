@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hp.mapper.EmpMapper">
 
-    <select id="selectEmps" resultType="com.hp.entity.Emp">
+    <select id="queryAllEmployeeInformation" resultType="com.hp.entity.Emp">
         select e.empno,e.ename,e.job,e.mgr,e.sal,e.comm,e.hiredate,
         d.deptno as "dept.deptno",
         d.dname as "dept.dname",
@@ -11,20 +11,20 @@
         from emp e inner join dept d on e.deptno=d.deptno
     </select>
 
-    <insert id="insertEmp">
+    <insert id="insertEmployeeInformation">
         insert into emp(empno,ename,job,mgr,hiredate,sal,comm,deptno)
         values
         (#{emp.empno},#{emp.ename},#{emp.job},#{emp.mgr},#{emp.hiredate},#{emp.sal},#{emp.comm},#{deptno})
     </insert>
 
-    <delete id="deleteEmp" parameterType="int">
+    <delete id="deleteEmployeeInformation" parameterType="int">
         delete from emp
         <where>
             empno=#{empno}
         </where>
     </delete>
 
-    <select id="selectEmpbyEmpno" parameterType="int" resultType="com.hp.entity.Emp">
+    <select id="queryEmployeeInformationByEmpno" parameterType="int" resultType="com.hp.entity.Emp">
                 select e.empno,e.ename,e.job,e.mgr,e.sal,e.comm,e.hiredate,
         d.deptno as "dept.deptno",
         d.dname as "dept.dname",
@@ -36,7 +36,7 @@
     </select>
 
 
-    <update id="updateEmp" parameterType="com.hp.entity.Emp">
+    <update id="updateEmployeeInformation" parameterType="com.hp.entity.Emp">
         update emp
         <set>
             ename=#{ename},job=#{job},sal=#{sal},comm=#{comm},hiredate=#{hiredate},deptno=#{deptno}

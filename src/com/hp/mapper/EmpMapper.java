@@ -9,14 +9,14 @@ import java.util.List;
 @Repository
 public interface EmpMapper{
 
-    public List<Emp> selectEmps() throws Exception;
+    public List<Emp> queryAllEmployeeInformation() throws Exception;
 
-    public boolean insertEmp(@Param("deptno") int deptno,@Param("emp") Emp emp) throws Exception;
+    public boolean insertEmployeeInformation(@Param("deptno") int deptno,@Param("emp") Emp emp) throws Exception;
 
-    public boolean deleteEmp(int empno) throws Exception;
+    public boolean deleteEmployeeInformation(int empno) throws Exception;
 
-    public Emp selectEmpbyEmpno(int empno)throws Exception;
+    public Emp queryEmployeeInformationByEmpno(int empno)throws Exception;
 
-    public boolean updateEmp (Emp emp) throws Exception;
+    public boolean updateEmployeeInformation (Emp emp) throws Exception;
 
 }
