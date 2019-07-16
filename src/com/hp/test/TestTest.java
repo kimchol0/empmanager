@@ -39,8 +39,9 @@ public class TestTest {
         catch (Exception ex){
             ex.printStackTrace();
         }
-
+    }
+    @Test
+    public void Test1(){
 
     }
-
 }
