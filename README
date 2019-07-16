@@ -1,0 +1,40 @@
+这是一个利用SPringMVC做的练习
+
+开发环境为：
+
+java version "11.0.3" 2019-04-16 LTS
+
+Java(TM) SE Runtime Environment 18.9 (build 11.0.3+12-LTS)
+
+Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.3+12-LTS, mixed mode)
+
+IDEA 2019.1.3
+
+jar包版本为：
+
+junit 5.5.0
+
+junit-platform 1.5.0
+
+Spring 5.0.6
+
+mybatis 3.5.1
+
+mybatis-spring 2.0.1
+
+log4j 2.12.0
+
+jstl 1.2
+
+commons-pool 1.6&2.6.2
+
+commons-dbcp 1.4&2.6.0
+
+commons-logging 1.2
+
+aspectjweaver 1.9.4
+
+mysql-connecter-java 8.0.16
+
+（注：截至V0.12版本，尚未进行log4j的配置）
+
