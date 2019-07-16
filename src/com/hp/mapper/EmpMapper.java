@@ -13,4 +13,10 @@ public interface EmpMapper{
 
     public boolean insertEmp(@Param("deptno") int deptno,@Param("emp") Emp emp) throws Exception;
 
+    public boolean deleteEmp(int empno) throws Exception;
+
+    public Emp selectEmpbyEmpno(int empno)throws Exception;
+
+    public boolean updateEmp (Emp emp) throws Exception;
+
 }

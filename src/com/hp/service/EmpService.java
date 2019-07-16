@@ -9,4 +9,9 @@ public interface EmpService {
 
     public boolean insertEmp(int deptno,Emp emp) throws Exception;
 
+    public boolean deleteEmp(int empno) throws Exception;
+
+    public Emp selectEmpbyEmpno(int deptno) throws Exception;
+
+    public boolean updateEmp (Emp emp) throws Exception;
 }

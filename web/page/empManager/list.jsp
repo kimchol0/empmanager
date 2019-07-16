@@ -41,9 +41,9 @@
                 <td align="center">${employeelistQueryResultsTable.dept.dname}</td>
                 <td align="center">${employeelistQueryResultsTable.dept.loc}</td>
                 <td align="center">
-                    <a href="#">【修改】</a>
+                    <a href="${pageContext.request.contextPath}/empController/editEmployee?empno=${employeelistQueryResultsTable.empno}">【修改】</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="#">【删除】</a>
+                    <a href="${pageContext.request.contextPath}/empController/deleteEmployee?empno=${employeelistQueryResultsTable.empno}">【删除】</a>
                 </td>
 
             </tr>

@@ -44,11 +44,50 @@ public class EmpController {
     }
 
     @RequestMapping(value = {"/insertEmployee"},method = RequestMethod.POST)
-    public String insertEmployee(int deptno,Emp emp){
+    public String insertEmployeeAndJumpEmpControllerEmployeeList(int deptno,Emp emp){
         try{
             empService.insertEmp(deptno,emp);
             ModelAndView insertEmployeeModelAndView = new ModelAndView();
             /*  执行插入员工操作后，重定向到EmpController控制器的employeelist方法中去执行employeelist方法  */
+            return "redirect:/empController/employeelist";
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @RequestMapping(value = {"/deleteEmployee"},method = RequestMethod.GET)
+    public String deleteEmployeeAndJumpEmpControllerEmployeeList(int empno){
+        try{
+            empService.deleteEmp(empno);
+            return "redirect:/empController/employeelist";
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @RequestMapping(value = {"/editEmployee"},method = RequestMethod.GET)
+    public ModelAndView DisplayEmployeeByEmpno(int empno){
+        try {
+            Emp selectEmpbyEmpnoEmpResult = empService.selectEmpbyEmpno(empno);
+            ModelAndView mv = new ModelAndView();
+            mv.setViewName("empManager/edit");
+            mv.addObject("selectEmpbyEmpnoEmpResult",selectEmpbyEmpnoEmpResult);
+            return mv;
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @RequestMapping(value = {"/updateEmployee"},method = RequestMethod.POST)
+    public String updateEmployee(Emp emp){
+        try{
+            empService.updateEmp(emp);
             return "redirect:/empController/employeelist";
         }
         catch (Exception ex){

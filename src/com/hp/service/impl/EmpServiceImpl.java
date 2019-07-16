@@ -22,4 +22,16 @@ public class EmpServiceImpl implements EmpService {
     public boolean insertEmp(int deptno,Emp emp) throws Exception{
         return empMapper.insertEmp(deptno,emp);
     }
+    public boolean deleteEmp(int empno) throws Exception{
+        return empMapper.deleteEmp(empno);
+    }
+
+    public Emp selectEmpbyEmpno(int empno) throws Exception{
+        return empMapper.selectEmpbyEmpno(empno);
+    }
+
+    public boolean updateEmp (Emp emp) throws Exception{
+        return empMapper.updateEmp(emp);
+    }
+
 }

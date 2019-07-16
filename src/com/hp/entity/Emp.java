@@ -12,6 +12,30 @@ public class Emp {
     private int sal;
     private int comm;
     private Dept dept;
+    private int deptno;
+
+    @Override
+    public String toString() {
+        return "Emp{" +
+                "empno=" + empno +
+                ", ename='" + ename + '\'' +
+                ", job='" + job + '\'' +
+                ", mgr=" + mgr +
+                ", hiredate=" + hiredate +
+                ", sal=" + sal +
+                ", comm=" + comm +
+                ", dept=" + dept +
+                ", deptno=" + deptno +
+                '}';
+    }
+
+    public int getDeptno() {
+        return deptno;
+    }
+
+    public void setDeptno(int deptno) {
+        this.deptno = deptno;
+    }
 
     public int getEmpno() {
         return empno;
@@ -77,17 +101,4 @@ public class Emp {
         this.dept = dept;
     }
 
-    @Override
-    public String toString() {
-        return "Emp{" +
-                "empno=" + empno +
-                ", ename='" + ename + '\'' +
-                ", job='" + job + '\'' +
-                ", mgr=" + mgr +
-                ", hiredate=" + hiredate +
-                ", sal=" + sal +
-                ", comm=" + comm +
-                ", dept=" + dept +
-                '}';
-    }
 }
