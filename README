@@ -1,8 +1,13 @@
 这是一个利用SPringMVC做的练习，包含对员工信息的增删改查功能。
+
 Database文件夹放置了数据库的脚本文件。
+
 web/page目录下下存放了网页
+
 web/WEB-INF/config目录下放置了Spring配置文件
+
 web/WEB-INF/lib目录下放置了项目所需要的jar包
+
 .gitignore定义了git提交时忽略的文件
 
 开发环境为：
