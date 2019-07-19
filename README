@@ -32,8 +32,6 @@ mybatis 3.5.1
 
 mybatis-spring 2.0.1
 
-log4j 2.12.0
-
 jstl 1.2
 
 commons-pool 1.6&2.6.2
@@ -46,5 +44,4 @@ aspectjweaver 1.9.4
 
 mysql-connecter-java 8.0.16
 
-（注：截至V0.12版本，尚未进行log4j的配置）
 
